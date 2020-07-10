@@ -127,6 +127,12 @@ You can run the following command to see what the middleware stack looks like:
 bundle exec rake middleware
 ```
 
+To change the order, try:
+
+```bash
+config.middleware.insert_before Warden::Manager, Rack::Cors do...
+```
+
 Note that the middleware stack is different in production.  For example, the `ActionDispatch::Static` middleware will not be part of the stack if `config.serve_static_assets = false`.  You can run this to see what your middleware stack looks like in production:
 
 ```bash
